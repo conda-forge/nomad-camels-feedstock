@@ -117,6 +117,7 @@ test:
     # - pip check
   requires:
     - pip
+    - {{ cdt('mesa-libgl-devel') }}      # [linux]
 
 about:
   home: https://fau-lap.github.io/NOMAD-CAMELS/
