@@ -1,26 +1,27 @@
 {% set name = "nomad-camels" %}
 {% set version = "0.2.3" %}
+{% set python_min = "3.10" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/nomad_camels-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/nomad_camels-{{ version }}.tar.gz
   sha256: b3429138200288f274a4fe535407bb117d4c46d945c81d1d03e3e84db09649d6
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 2
 
 requirements:
   host:
-    - python >=3.9.6
+    - python {{ python_min }}
     - setuptools >=61.0
     - pip
   run:
-    - python >=3.9.6
+    - python >={{ python_min }}
     - pyside6 >=6.5.1
     - bluesky >=1.8.3
     - ophyd >=1.6.4
@@ -117,6 +118,7 @@ test:
     # - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://fau-lap.github.io/NOMAD-CAMELS/
