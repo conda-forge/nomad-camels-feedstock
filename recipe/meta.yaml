@@ -6,21 +6,21 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/nomad_camels-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/nomad_camels-{{ version }}.tar.gz
   sha256: 676f1b235dac863375c1e5d937795fba8ff2a82d4b28b95be4ac01ccde88f3b0
 
 build:
-  noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
 
 requirements:
   host:
-    - python >=3.9.6
+    - python
     - setuptools >=61.0
     - pip
+    - libgl-devel  # [linux]
   run:
-    - python >=3.9.6
+    - python
     - pyside6 >=6.5.1
     - bluesky >=1.8.3
     - ophyd >=1.6.4
