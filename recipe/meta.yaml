@@ -1,5 +1,5 @@
 {% set name = "nomad-camels" %}
-{% set version = "1.5.3" %}
+{% set version = "1.6.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/nomad_camels-{{ version }}.tar.gz
-  sha256: 5dcc57dae372c52e90846125ad71a2347ce9cb185169f7d530611a314205326a
+  sha256: 24c2e9fafabeaf2c17995111e04a4b80de8f5a338a1d2e139b94e538ff4be2ee
 
 build:
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
