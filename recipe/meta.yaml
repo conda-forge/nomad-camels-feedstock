@@ -114,7 +114,7 @@ test:
   imports:
     - nomad_camels
   commands:
-    # - pip check
+    - pip check
   requires:
     - pip
 
