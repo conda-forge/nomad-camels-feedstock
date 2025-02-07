@@ -12,13 +12,13 @@ source:
 build:
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
-  skip: true  # [py<39]
 
 requirements:
   host:
     - python
     - setuptools >=61.0
     - pip
+    - libgl-devel  # [linux]
   run:
     - python
     - pyside6 >=6.5.1
@@ -117,7 +117,6 @@ test:
     # - pip check
   requires:
     - pip
-    - {{ cdt('mesa-libgl-devel') }}      # [linux]
 
 about:
   home: https://fau-lap.github.io/NOMAD-CAMELS/
