@@ -10,17 +10,17 @@ source:
   sha256: a3f9f281803749cbcbf5b567d8e4ac2be092906e49c62f890e64e43058144046
 
 build:
-  noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
 
 requirements:
   host:
-    - python >=3.9.6
+    - python
     - setuptools >=61.0
     - pip
+    - libgl-devel  # [linux]
   run:
-    - python >=3.9.6
+    - python
     - pyside6 >=6.5.1
     - bluesky >=1.8.3
     - ophyd >=1.6.4
